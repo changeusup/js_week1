@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<input id="vol" type="range" max="80" min="0">
+	<button id="playBut1">Play #1</button>
+	<audio id="playMus1" src="music1.mp3"></audio>
+	<button id="stopBut">Stop</button>
+
+	<img id="lego" src="lego1.jpg">
+	<script type="text/javascript">
+		//객체 변수 함수 이벤트 조건 반복 배열
+		//토글 왔다갔다
+		// boolean true/false;
+
+		vol.value = 80;
+		vol.oninput = function(){
+			playMus1.volume = vol.value / 100;
+		}
+
+		playBut1.onclick = function(){
+			playMus1.play();
+			playMus1.controls = true;
+		}
+		stopBut.onclick = function(){
+			playMus1.pause();
+		}
+
+		var state = false;
+
+		lego.onclick = function(){
+			if(state == false){
+				lego.src = "lego2.jpg";
+				state = true;
+			}else{
+				lego.src = "lego1.jpg";
+				state = false;
+			}
+		}
+
+	</script>
+</body>
+</html>
